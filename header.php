@@ -18,11 +18,11 @@
             <div class="site-header__menu group">
                 <nav class="main-navigation">
                     <ul>
-                        <li><a href="<?= site_url('/about-us') ?>">About Us</a></li>
-                        <li><a href="#">Programs</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Campuses</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li <?= (is_page('about-us') || wp_get_post_parent_id(0) == 13) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/about-us') ?>">About Us</a></li>
+                        <li <?= (is_page('programs') || wp_get_post_parent_id(0) == 33) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/programs') ?>">Programs</a></li>
+                        <li <?= (is_page('events') || wp_get_post_parent_id(0) == 35) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/events') ?>">Events</a></li>
+                        <li <?= (is_page('campuses') || wp_get_post_parent_id(0) == 37) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/campuses') ?>">Campuses</a></li>
+                        <li <?= (is_page('blog') || wp_get_post_parent_id(0) == 39) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/blog') ?>">Blog</a></li>
                     </ul>
                 </nav>
                 <div class="site-header__util">
