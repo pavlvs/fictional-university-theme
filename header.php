@@ -22,7 +22,7 @@
                         <li <?= (is_page('programs') || wp_get_post_parent_id(0) == 33) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/programs') ?>">Programs</a></li>
                         <li <?= (is_page('events') || wp_get_post_parent_id(0) == 35) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/events') ?>">Events</a></li>
                         <li <?= (is_page('campuses') || wp_get_post_parent_id(0) == 37) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/campuses') ?>">Campuses</a></li>
-                        <li <?= (is_page('blog') || wp_get_post_parent_id(0) == 39) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/blog') ?>">Blog</a></li>
+                        <li <?= get_post_type() == 'post' ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('blog') ?>">Blog</a></li>
                     </ul>
                 </nav>
                 <div class="site-header__util">
