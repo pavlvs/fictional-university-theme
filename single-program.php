@@ -37,12 +37,18 @@ while (have_posts()) {
         <?php if ($relatedProfessors->have_posts()) : ?>
             <hr class="section-break">
             <h2 class="headline headline--medium"><?= get_the_title(); ?> Professors</h2>
-
-            <?php while ($relatedProfessors->have_posts()) :
-                $relatedProfessors->the_post();
-            ?>
-                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            <?php endwhile; ?>
+            <ul class="professor-cards">
+                <?php while ($relatedProfessors->have_posts()) :
+                    $relatedProfessors->the_post();
+                ?>
+                    <li class="professor-card__list-item">
+                        <a class="professor-card" href="<?php the_permalink(); ?>">
+                            <img class="professor-card__image" src="<?php the_post_thumbnail_url('professorLandscape'); ?>" alt="">
+                            <span class="professor-card__name"><?php the_title(); ?></span>
+                        </a>
+                    </li>
+                <?php endwhile; ?>
+            </ul>
         <?php endif; ?>
 
         <?php
