@@ -24,7 +24,7 @@
 
                         <li <?= (get_post_type() == 'event' || is_page('past-events')) ? 'class="current-menu-item"' : '' ?>><a href="<?= get_post_type_archive_link('event') ?>">Events</a></li>
 
-                        <li <?= (is_page('campuses') || wp_get_post_parent_id(0) == 37) ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('/campuses') ?>">Campuses</a></li>
+                        <li <?= (is_page('campuses') || wp_get_post_parent_id(0) == 37) ? 'class="current-menu-item"' : '' ?>><a href="<?= get_post_type_archive_link('campus')  ?>">Campuses</a></li>
 
                         <li <?= get_post_type() == 'post' ? 'class="current-menu-item"' : '' ?>><a href="<?= site_url('blog') ?>">Blog</a></li>
                     </ul>
