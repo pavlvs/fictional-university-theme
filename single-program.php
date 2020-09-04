@@ -4,7 +4,6 @@ while (have_posts()) {
     the_post();
     pageBanner();
 ?>
-
     <div class="container container--narrow page-section">
         <div class="generic-content">
             <div class="metabox metabox--position-up metabox--with-home-link">
@@ -72,13 +71,23 @@ while (have_posts()) {
         <?php if ($homepageEvents->have_posts()) : ?>
             <hr class="section-break">
             <h2 class="headline headline--medium">Upcoming <?= get_the_title(); ?> Events</h2>
-
             <?php while ($homepageEvents->have_posts()) :
                 $homepageEvents->the_post();
                 get_template_part('template-parts/content', 'event');
             ?>
-
             <?php endwhile; ?>
+        <?php endif; ?>
+        <?php
+        wp_reset_postdata();
+        $relatedCampuses = get_field('related_campus');
+        if ($relatedCampuses) : ?>
+            <hr class="section-break">
+            <h2 class="headline headline--medium"><?php the_title(); ?> is available at these campuses:</h2>
+            <ul class="min-list link-list">
+                <?php foreach ($relatedCampuses as $campus) : ?>
+                    <li><a href="<?= get_the_permalink($campus) ?>"><?= get_the_title($campus); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
         <?php endif; ?>
     </div>
 <?php }

@@ -12,14 +12,14 @@ pageBanner([
             the_post();
             $mapLocation = get_field('map_location');
         ?>
-            <div class="marker" data-lat="<?= $mapLocation['lat'] ?>" data-lng="<?= $mapLocation['lng'] ?>"></div>
+            <div class="marker" data-lat="<?= $mapLocation['lat'] ?>" data-lng="<?= $mapLocation['lng'] ?>">
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <?= $mapLocation['address'] ?>
+            </div>
         <?php endwhile;
-        echo paginate_links();
         ?>
     </div>
-
 </div>
-
 <?php
 get_footer();
 ?>
